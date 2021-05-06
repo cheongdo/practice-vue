@@ -1,16 +1,31 @@
 <template>
     <div>
-        <p>{{ name }}</p>
-        <button @click="updateName">change name</button>
+        
+        <p>Header</p>
+        <slot name="header" :cheongdo="cheongdo"></slot>
+        <p>Body</p>
+        <slot></slot>
+        <p>Footer</p>
+        
     </div>
 </template>
 
 <script>
 export default {
+    props: {
+        title: {
+            type: String,
+            default: 'default title'
+        },
+        name: {
+            type: String,
+            default: 'default name'
+        }
+    },
     data() {
         return {
-            name: 'Cheongdo',
-        }
+            cheongdo: 'gun'
+        } 
     },
 
     methods: {
